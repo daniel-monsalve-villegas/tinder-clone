@@ -1,23 +1,67 @@
-@import 'reset', 'mixins', 'keyframes' 
+@import 'reset', 'mixins', 'keyframes';
+
 .header {
   width: 100%;
-  background: red;
+  background: lightgray;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2em;
 }
+
 .header__izq {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
-.heder__h1 {
+.header__h1 {
+  background: lightblue;
+  margin: 0 1em 0 0;
 }
+
 .header__logo {
 }
+
 .header__img {
 }
+
 .header__nav {
 }
+
 .header__ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
+
 .header__li {
+  background-color: lightblue;
+  margin: 0 0.5em 0 0;
 }
+
 .header__a {
 }
+
 .header__der {
+  background-color: pink;
 }
+
+.header__svg {
+  margin: 0 0.5em 0 0;
+}
+
+.header__btn {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns {
+}
+

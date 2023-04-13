@@ -107,7 +107,7 @@ button,
 label {
   font-family: inherit;
   font-size: inherit;
-  hyphens: auto;
+  /* hyphens: auto; */
   background-color: transparent;
   color: inherit;
   display: block;
@@ -132,7 +132,7 @@ body {
   font-family: var(--main-type);
   color: var(--black);
   line-height: 1.4em;
-  hyphens: auto;
+  /* hyphens: auto; */
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
