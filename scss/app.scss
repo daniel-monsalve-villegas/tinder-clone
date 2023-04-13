@@ -65,3 +65,39 @@
 .btns {
 }
 
+.header__menu {
+  display: none;
+
+  width: 2em;
+  height: 2em;
+  background-color: salmon;
+}
+
+.main {}
+
+.swipe {}
+
+.swipe__h2 {}
+
+.swipe__btn {}
+
+.testimonies {}
+
+.testimonies__slider {}
+
+.testimonies__slide {}
+
+.testimonies__names {}
+
+.testimonies__p {}
+
+@media (max-width: 760px) {
+  .header__nav, .header__ul {
+    display: none;
+  }
+
+  .header__menu {
+    display: flex;
+  }
+}
+
