@@ -1,8 +1,9 @@
 :root {
   --black: #393939;
   --white: #ececec;
-  --main-type: Helvetica, Arial, sans-serif;
+  --main-type: "metropolisregular", Helvetica, Arial, sans-serif;
   --second-type: Verdana;
+  --bold-type: "metropolissemi_bold";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -134,14 +135,74 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "metropolisbold";
+  src: url("fonts/metropolis-bold-webfont.woff2") format("woff2"), url("fonts/metropolis-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "metropolisextra_bold";
+  src: url("fonts/metropolis-extrabold-webfont.woff2") format("woff2"), url("fonts/metropolis-extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "metropolisextra_light";
+  src: url("fonts/metropolis-extralight-webfont.woff2") format("woff2"), url("fonts/metropolis-extralight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "metropolislight";
+  src: url("fonts/metropolis-light-webfont.woff2") format("woff2"), url("fonts/metropolis-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "metropolisregular";
+  src: url("fonts/metropolis-regular-webfont.woff2") format("woff2"), url("fonts/metropolis-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "metropolisregular_italic";
+  src: url("fonts/metropolis-regularitalic-webfont.woff2") format("woff2"), url("fonts/metropolis-regularitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "metropolissemi_bold";
+  src: url("fonts/metropolis-semibold-webfont.woff2") format("woff2"), url("fonts/metropolis-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "palanquin_darkregular";
+  src: url("fonts/palanquindark-regular-webfont.woff2") format("woff2"), url("fonts/palanquindark-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 .header {
   width: 100%;
-  background: lightgray;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   padding: 2em;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  color: white;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
 .header__izq {
@@ -152,8 +213,15 @@ body {
 }
 
 .header__h1 {
-  background: lightblue;
   margin: 0 1em 0 0;
+}
+
+.header__img {
+  max-width: 9.7em;
+}
+
+.header__g {
+  fill: white;
 }
 
 .header__ul {
@@ -164,7 +232,6 @@ body {
 }
 
 .header__li {
-  background-color: lightblue;
   margin: 0 0.5em 0 0;
 }
 
@@ -198,22 +265,46 @@ body {
 
 .swipe {
   width: 100%;
-  min-height: 90vh;
-  background-color: lightgrey;
+  min-height: 95vh;
+  background: url(../assets/download-2.webp) center/cover fixed;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin: 0.1em 0;
+  position: relative;
+  color: white;
+  font-family: var(--bold-type);
+}
+
+.swipe::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .swipe__h2 {
-  background-color: red;
   margin: 0 0 1em;
+  position: relative;
+  z-index: 2;
+  font-size: clamp(2em, 7vw, 5em);
 }
 
 .swipe__btn {
-  background-color: bisque;
+  background: linear-gradient(270deg, rgb(255, 96, 54) 0%, rgb(253, 38, 122) 100%);
+  position: relative;
+  z-index: 2;
+  padding: 1em 2em;
+  border-radius: 2em;
+  cursor: pointer;
+}
+
+.swipe__btn:hover {
+  background: linear-gradient(270deg, rgb(253, 38, 122) 0%, rgb(255, 96, 54) 100%);
 }
 
 .testimonies {
@@ -241,6 +332,16 @@ body {
   padding: 0 0 1em;
   margin: 0 0 1em;
   border-bottom: 1px solid grey;
+  position: relative;
+}
+
+.testimonies__names::after {
+  content: '"';
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 4em;
+  font-family: "Courier New", Courier, monospace;
 }
 
 @media (max-width: 760px) {
@@ -251,6 +352,71 @@ body {
   .header__menu {
     display: flex;
   }
+}
+/* FOOTER */
+.legal {
+  margin: 0 0 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  gap: 1em;
+}
+
+.legal__col {
+  background-color: orange;
+}
+
+.app {
+  margin: 0 0 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app__h2 {
+  margin: 0 1em 0 0;
+}
+
+.app__ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app__li {
+  margin: 0 1em 0 0;
+}
+
+.footer__claim {
+  margin: 0 0 1em;
+}
+
+.footer__sub {
+  border-top: 1px solid grey;
+  padding: 1em 0 0;
+  margin-bottom: 50vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.faqs {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.faqs__li {
+  display: flex;
+}
+
+.faqs__li::after {
+  content: "/";
+  display: block;
+  margin: 0 1em;
 }
 
 /*# sourceMappingURL=app.css.map */
