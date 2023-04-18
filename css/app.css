@@ -313,6 +313,7 @@ body {
   transition: all 0.5 ease;
   background-color: orange;
   overflow: hidden;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .swipe__btn::after {
@@ -321,16 +322,34 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: linear-gradient(270deg, rgb(255, 96, 54) 0%, rgb(253, 38, 122) 100%);
+  background-image: linear-gradient(270deg, rgb(255, 96, 54) 45%, rgb(253, 38, 122) 70%);
   top: 0;
   left: 0;
-  transform: rotate(180deg);
+  z-index: 1;
+  transform: rotate(0deg) scale(3.7);
+  transition: all 0.5 ease;
 }
 
 .swipe__btn:hover {
-  background: linear-gradient(270deg, rgb(253, 38, 122) 0%, rgb(255, 96, 54) 100%);
+  box-shadow: 0 0.3em 1.4em rgba(0, 0, 0, 0.4);
 }
 
+.swipe__btn:hover::after {
+  transform: rotate(180deg) scale(3.7);
+}
+
+.swipe__span {
+  position: relative;
+  z-index: 2;
+}
+
+/* .swipe__btn:hover { */
+/*   background: linear-gradient( */
+/*     270deg, */
+/*     rgba(253, 38, 122, 1) 0%, */
+/*     rgba(255, 96, 54, 1) 100% */
+/*   ); */
+/* } */
 .testimonies {
   padding: 5vh 0;
 }
