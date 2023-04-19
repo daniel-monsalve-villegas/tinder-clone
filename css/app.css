@@ -2,8 +2,9 @@
   --black: #393939;
   --white: #ececec;
   --main-type: "metropolisregular", Helvetica, Arial, sans-serif;
-  --second-type: Verdana;
+  --second-type: "palanquin_darkregular";
   --bold-type: "metropolissemi_bold";
+  --extra-bold: "metropolisextra_bold" ;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -191,20 +192,20 @@ body {
   font-style: normal;
   font-display: swap;
 }
+/*HEADER*/
 .header {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1.6em;
+  padding: 1.02em 1.55em;
   position: fixed;
   top: 0;
   z-index: 2;
   color: white;
   font-size: 0.8em;
   font-family: var(--bold-type);
-  letter-spacing: 0.5px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
@@ -239,10 +240,6 @@ body {
   margin: 0 2em 0 0;
 }
 
-.header__der {
-  background-color: pink;
-}
-
 .header__svg {
   margin: 0 0.5em 0 0;
 }
@@ -258,12 +255,25 @@ body {
   display: none;
   width: 2em;
   height: 2em;
-  background-color: salmon;
+}
+
+.header__btn--join {
+  color: black;
+  background-color: white;
+  border-radius: 2em;
+  padding: 1em 2em;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.header__btn--join:hover {
+  box-shadow: 0 0.3em 1.4em rgba(0, 0, 0, 0.7);
 }
 
 .wrapper {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1620px;
   margin: auto;
 }
 
@@ -300,11 +310,6 @@ body {
 }
 
 .swipe__btn {
-  /* background: linear-gradient( */
-  /*   270deg, */
-  /*   rgba(255, 96, 54, 1) 0%, */
-  /*   rgba(253, 38, 122, 1) 100% */
-  /* ); */
   position: relative;
   z-index: 2;
   padding: 1em 2em;
@@ -343,13 +348,6 @@ body {
   z-index: 2;
 }
 
-/* .swipe__btn:hover { */
-/*   background: linear-gradient( */
-/*     270deg, */
-/*     rgba(253, 38, 122, 1) 0%, */
-/*     rgba(255, 96, 54, 1) 100% */
-/*   ); */
-/* } */
 .testimonies {
   padding: 5vh 0;
 }
@@ -360,31 +358,38 @@ body {
 
 .testimonies__slider {
   width: 200%;
+  padding: 0.5em;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1em;
 }
 
 .testimonies__slide {
-  border: 1px solid gray;
-  padding: 1em;
+  border: 1px solid rgb(212, 216, 222);
+  padding: 1.5em;
   border-radius: 0.5em;
+  box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.12);
 }
 
 .testimonies__names {
   padding: 0 0 1em;
   margin: 0 0 1em;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgba(101, 110, 123, 0.1215686275);
+  font-size: 1.2em;
+  font-family: var(--bold-type);
   position: relative;
 }
 
 .testimonies__names::after {
   content: '"';
   position: absolute;
-  top: 0;
+  top: -0.07em;
   right: 0;
-  font-size: 4em;
-  font-family: "Courier New", Courier, monospace;
+  color: rgba(101, 110, 123, 0.3411764706);
+  font-family: var(--second-type);
+  font-size: 6em;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
 @media (max-width: 760px) {
@@ -401,15 +406,49 @@ body {
   margin: 0 0 1em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-  gap: 1em;
+  gap: 1.2em;
 }
 
 .legal__col {
-  background-color: orange;
+  padding: 1em;
+}
+
+.legal__ul--rrss {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.legal__li {
+  margin: 0 0 0.4em 0;
+}
+
+.legal__li--title {
+  font-family: var(--extra-bold);
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0 0 1em;
+}
+
+.legal__a {
+  transition: all 0.5 ease;
+}
+
+.legal__a:hover {
+  color: red;
+}
+
+.legal__svg {
+  width: 1.6em;
+  height: 1.6em;
+  margin: 0 0.4em;
 }
 
 .app {
   margin: 0 0 1em;
+  padding: 1em 1em 0;
+  border-top: 1px solid rgb(212, 216, 222);
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -418,6 +457,9 @@ body {
 
 .app__h2 {
   margin: 0 1em 0 0;
+  font-family: var(--extra-bold);
+  text-transform: uppercase;
+  align-items: center;
 }
 
 .app__ul {
@@ -431,18 +473,26 @@ body {
   margin: 0 1em 0 0;
 }
 
+.app__img {
+  max-width: 12em;
+}
+
 .footer__claim {
   margin: 0 0 1em;
+  padding: 0 1em;
+  font-size: 0.85em;
+  line-height: 1.4em;
 }
 
 .footer__sub {
   border-top: 1px solid grey;
-  padding: 1em 0 0;
+  padding: 1em 1em 0;
   margin-bottom: 50vh;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
+  font-size: 0.83em;
 }
 
 .faqs {
@@ -460,6 +510,7 @@ body {
   content: "/";
   display: block;
   margin: 0 1em;
+  color: #656e7b;
 }
 
 /*# sourceMappingURL=app.css.map */
